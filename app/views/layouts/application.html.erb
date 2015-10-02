@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Starling</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+<div id="wrapper">
+  <%= render 'layouts/header' %>
+
+
+  <%= yield %>
+
+
+</div>
+
+<%= render 'layouts/footer' %>
 
 </body>
+
 </html>

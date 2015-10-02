@@ -1,2 +1,26 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, 'Login or Sign up') %>
+<div class="container clearfix">
+  <div class="text">
+    <section>
+      <h1>Welcome to Starling</h1>
+      <p>Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+    </section>
+  </div>
+  <div class="forms">
+    <form method="POST">
+      <div class="login">
+        <input type="text"  name="session[username_or_email]" autocomplete="on" placeholder="Email or username">
+        <input type="text"  name="session[password]" autocomplete="on" placeholder="Password">
+        <button type="submit">Log in</button>
+      </div>
+      <div class="signin">
+        <h2><strong>New to Starling? </strong>Sign up</h2>
+        <hr>
+        <input type="text"  name="user[name]" autocomplete="off" placeholder="Full name">
+        <input type="text"  name="user[email]" autocomplete="off" placeholder="Email">
+        <input type="text"  name="user[password]" autocomplete="off" placeholder="Password">
+        <button type="submit">Sign up for Starling</button>
+      </div>
+    </form>
+  </div>
+</div>
