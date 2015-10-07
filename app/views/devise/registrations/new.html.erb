@@ -1,17 +1,11 @@
+<% provide(:title, 'Sign up') %>
 <div id="wrapper">
 <div class="container clearfix">
   <div class="form">
     <section class="login">
       <strong>Join Starling today.</strong>
       <hr>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-            <%= f.text_field :name, autofocus: true , :placeholder => "Full name"%>
-            <%= f.email_field :email, :placeholder => "Email" %>
-            <%= f.password_field :password, autocomplete: "off" , :placeholder => "Password"%>
-            <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Password confirmation" %>
-            <%= f.button "Sign up" %>
-      <% end %>
+      <%= render "devise/registrations/form" %>
     </section>
   </div>
 </div>

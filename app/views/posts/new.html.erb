@@ -1,5 +1,6 @@
+<% provide(:title, 'New post') %>
 <h1>New Post</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', user_path(current_user) %>

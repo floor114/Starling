@@ -1,4 +1,4 @@
-<% provide(:title, 'Users') %>
+<% provide(:title, @user.name) %>
 <div class="container clearfix">
   <div class="content">
     <div class="user_info">
@@ -7,7 +7,6 @@
       </div>
       <div class="info">
         <h1><%= @user.name %></h1>
-        <%= link_to 'New Post', new_post_path %>
         <!--<h3>@floor114</h3>-->
         <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
         <div class="more_info">
@@ -23,7 +22,7 @@
         <h1>Starls</h1>
       </div>
 
-      <% @user.posts.each do |post| %>
+      <% @user.posts.reverse.each do |post| %>
           <div class="starls">
             <div class="starls_photo">
               <img src="images/bg.jpg">
@@ -35,9 +34,12 @@
               <p><%= post.content %></p>
             </div>
           </div>
-            <%= link_to 'Show', post %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if user_signed_in? and @user.id == current_user.id%>
+              <%= link_to 'Show', post %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+              <%= link_to 'Show', post %>
+          <% end %>
       <% end %>
 
 

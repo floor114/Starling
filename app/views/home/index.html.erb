@@ -8,21 +8,14 @@
     </section>
   </div>
   <div class="forms">
-    <form method="POST">
       <div class="login">
-        <input type="text"  name="session[username_or_email]" autocomplete="on" placeholder="Email or username">
-        <input type="text"  name="session[password]" autocomplete="on" placeholder="Password">
-        <button type="submit">Log in</button>
+        <%= render "home/sign_in_form" %>
       </div>
       <div class="signin">
         <h2><strong>New to Starling? </strong>Sign up</h2>
         <hr>
-        <input type="text"  name="user[name]" autocomplete="off" placeholder="Full name">
-        <input type="text"  name="user[email]" autocomplete="off" placeholder="Email">
-        <input type="text"  name="user[password]" autocomplete="off" placeholder="Password">
-        <button type="submit">Sign up for Starling</button>
+        <%= render "home/log_in_form" %>
       </div>
-    </form>
   </div>
   </div>
 </div>

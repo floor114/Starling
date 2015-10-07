@@ -1,14 +1,11 @@
+<% provide(:title, 'Login') %>
 <div id="wrapper">
 <div class="container clearfix">
   <div class="form">
     <section class="login">
       <strong>Login on Starling.</strong>
       <hr>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= f.email_field :email, :placeholder => "Email" %>
-          <%= f.password_field :password, autocomplete: "off" , :placeholder => "Password"%>
-         <%= f.button "Sign up" %>
-      <% end %>
+      <%= render "devise/sessions/form" %>
       <%= render "devise/shared/links" %>
     </section>
   </div>

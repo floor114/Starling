@@ -1,0 +1,5 @@
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+    <%= f.email_field :email, :placeholder => "Email" %>
+    <%= f.password_field :password, autocomplete: "off" , :placeholder => "Password"%>
+    <%= f.button "Sign up for Starling" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, :placeholder => "Email" %>
+    <%= f.password_field :password, autocomplete: "off" , :placeholder => "Password"%>
+    <%= f.button "Log in" %>
+<% end %>
