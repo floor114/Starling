@@ -1,21 +1,69 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.name %> <br>
-<h1>Listing Posts</h1>
+<% provide(:title, 'Users') %>
+<div class="container clearfix">
+  <div class="content">
+    <div class="user_info">
+      <div class="avatar">
+        <img src="bg.jpg">
+      </div>
+      <div class="info">
+        <h1><%= @user.name %></h1>
+        <%= link_to 'New Post', new_post_path %>
+        <!--<h3>@floor114</h3>-->
+        <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+        <div class="more_info">
+          <!--<p>Khmelnytsky</p>-->
+          <!--<a href="vk.com/floor114">vk.com/floor114</a>-->
+          <p>In Starling from <%= @user.created_at.strftime("%B")%>
+            <%=@user.created_at.year %></p>
+        </div>
+      </div>
+    </div>
+    <div class="wall">
+      <div class="artcl">
+        <h1>Starls</h1>
+      </div>
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+      <% @user.posts.each do |post| %>
+          <div class="starls">
+            <div class="starls_photo">
+              <img src="images/bg.jpg">
+            </div>
+            <div class="starls_state">
+              <div class="user_name_time">
+                <p><strong><%= @user.name %></strong> - <%= time_ago_in_words(post.created_at) %> ago.</p>
+              </div>
+              <p><%= post.content %></p>
+            </div>
+          </div>
+            <%= link_to 'Show', post %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
 
-  <tbody>
 
-  </tbody>
-</table>
-<br>
-<%= link_to 'New Post', new_post_path %>
+
+    </div>
+  </div>
+</div>
+
+
+<!--<h1>Users#show</h1>-->
+<!--<p>Find me in app/views/users/show.html.erb</p>-->
+<!--<h1>Listing Posts</h1>-->
+
+<!--<table>-->
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>Title</th>-->
+    <!--<th>Content</th>-->
+    <!--<th colspan="3"></th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+
+  <!--<tbody>-->
+
+  <!--</tbody>-->
+<!--</table>-->
+<!--<br>-->
+<!--<%= link_to 'New Post', new_post_path %>-->
 
