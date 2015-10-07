@@ -3,9 +3,27 @@
     <div class="logo">
       <%= link_to image_tag("logo.png", alt: "Starling"), root_path %>
     </div>
-    <nav class="top-menu">
-      <%= link_to "Sign up", signup_path %>
-      <%= link_to "Log in", login_path %>
-    </nav>
+    <% if user_signed_in? %>
+        <nav class="top-menu">
+          <div class="list">
+            <ul>
+              <li>
+                <a href="#"><%= current_user.name %></a>
+                <ul class="dropdown">
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <% else %>
+        <nav class="top-menu">
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Log in", new_user_session_path %>
+        </nav>
+    <% end %>
   </div>
 </header>
+
