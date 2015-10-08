@@ -3,7 +3,7 @@
   <div class="content">
     <div class="user_info">
       <div class="avatar">
-        <img src="bg.jpg">
+        <%= image_tag("noavatar.png", :alt => "No avatar") %>
       </div>
       <div class="info">
         <h1><%= @user.name %></h1>
@@ -25,11 +25,11 @@
       <% @user.posts.reverse.each do |post| %>
           <div class="starls">
             <div class="starls_photo">
-              <img src="images/bg.jpg">
+              <%= link_to(image_tag("noavatar.png", :alt => "No avatar"), user_path(@user)) %>
             </div>
             <div class="starls_state">
               <div class="user_name_time">
-                <p><strong><%= @user.name %></strong> - <%= time_ago_in_words(post.created_at) %> ago.</p>
+                <p><strong><%= link_to @user.name, user_path(@user) %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ " ago."), post%> </p>
               </div>
               <p><%= post.content %></p>
             </div>
@@ -37,8 +37,6 @@
           <% if user_signed_in? and @user.id == current_user.id%>
               <%= link_to 'Show', post %>
               <%= link_to 'Destroy', post, method: :delete %>
-          <% else %>
-              <%= link_to 'Show', post %>
           <% end %>
       <% end %>
 
@@ -47,25 +45,4 @@
     </div>
   </div>
 </div>
-
-
-<!--<h1>Users#show</h1>-->
-<!--<p>Find me in app/views/users/show.html.erb</p>-->
-<!--<h1>Listing Posts</h1>-->
-
-<!--<table>-->
-  <!--<thead>-->
-  <!--<tr>-->
-    <!--<th>Title</th>-->
-    <!--<th>Content</th>-->
-    <!--<th colspan="3"></th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-
-  <!--<tbody>-->
-
-  <!--</tbody>-->
-<!--</table>-->
-<!--<br>-->
-<!--<%= link_to 'New Post', new_post_path %>-->
 

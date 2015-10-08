@@ -5,6 +5,7 @@ ruby '2.2.3'
 gem 'rails', '4.2.4'
 
 gem 'devise'
+gem 'acts_as_commentable'
 
 group :development, :test do
   gem 'sqlite3'
