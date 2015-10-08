@@ -36,7 +36,7 @@ module Starling
         :domain         => 'starlingg.herokuapp.com',
         :authentication => :plain,
     }
-
+    config.action_mailer.delivery_method = :smtp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
