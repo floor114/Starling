@@ -12,3 +12,11 @@
 </p>
 
 <%= link_to 'Back', user_path(@post.user) %>
+
+
+<h4>Coments</h4>
+<%= render :partial =>@post.comments %>
+<%= form_for [@post, Comment.new] do |f| %>
+<%= f.text_area :content, :label => "New Comment", as: :text, input_html:{ rows: "3"} %>
+<%= f.submit "Add Comment"%>
+<%end%>

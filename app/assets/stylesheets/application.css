@@ -289,8 +289,17 @@ button[type=submit]:active {
 }
 
 .starls {
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     border-top: 1px solid #dddddd;
+}
+
+.starl-state p{
+    text-align: justify;
+}
+
+.comments-count {
+    float: right;
+    padding-bottom: 5px;
 }
 
 .wall a{
@@ -305,6 +314,17 @@ button[type=submit]:active {
     padding-bottom: 5px;
 }
 
+
+.wall  a {
+    color: #8899a6;
+}
+.wall  a:visited {
+    color: #8899a6;
+}
+.wall  a:hover {
+    color: #292f33;
+    text-decoration: underline;
+}
 
 .content strong a {
     color: #292f33;
