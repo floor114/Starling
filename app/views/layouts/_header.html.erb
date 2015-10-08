@@ -10,6 +10,7 @@
               <li>
                 <a href="#"><%= current_user.name %></a>
                 <ul class="dropdown">
+                  <li><%= link_to "New post", new_post_path%></li>
                   <li><a href="#">Profile</a></li>
                   <li><a href="#">Settings</a></li>
                   <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
@@ -18,7 +19,7 @@
             </ul>
           </div>
         </nav>
-        <%= link_to 'New Post', new_post_path %>
+
     <% else %>
         <nav class="top-menu">
           <%= link_to "Sign up", new_user_registration_path %>

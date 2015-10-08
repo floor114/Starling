@@ -126,6 +126,15 @@ header {
     font: 24px Arial, sans-serif;
 }
 
+.new-starl img{
+    width: 20px;
+    height: 20px;
+}
+
+.new-starl a{
+    background-color: white;
+}
+
 .text{
     color: #fff;
     text-align: left;

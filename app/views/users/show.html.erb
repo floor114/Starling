@@ -19,7 +19,7 @@
     </div>
     <div class="wall">
       <div class="artcl">
-        <h1>Starls</h1>
+        <h1>Posts</h1>
       </div>
 
       <% @user.posts.reverse.each do |post| %>
@@ -36,7 +36,7 @@
           </div>
           <% if user_signed_in? and @user.id == current_user.id%>
               <%= link_to 'Show', post %>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Destroy', post, method: :delete %>
           <% else %>
               <%= link_to 'Show', post %>
           <% end %>
