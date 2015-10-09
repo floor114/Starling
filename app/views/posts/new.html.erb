@@ -1,6 +1,11 @@
 <% provide(:title, 'New post') %>
-<h1>New Post</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', user_path(current_user) %>
+<div class="container clearfix">
+  <div class="content">
+    <div class="wall-post">
+      <div class="artcl">
+        <h1>New post</h1>
+      </div>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

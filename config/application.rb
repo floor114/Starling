@@ -29,14 +29,16 @@ module Starling
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     ActionMailer::Base.smtp_settings = {
-        :port           => ENV['MAILGUN_SMTP_PORT'],
-        :address        => ENV['MAILGUN_SMTP_SERVER'],
-        :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-        :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-        :domain         => 'starlingg.herokuapp.com',
-        :authentication => :plain,
+
+        :address        => 'smtp.gmail.com',
+        :domain         => 'mail.google.com',
+        :port           => 587,
+        :user_name      => "suport.starling@gmail.com", #ENV['GMAIL_USERNAME'],
+        :password       => "11031997", #ENV['GMAIL_PASSWORD'],
+        :authentication => 'login',
+        :enable_starttls_auto => true
     }
-    config.action_mailer.delivery_method = :smtp
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end

@@ -23,6 +23,7 @@
       </div>
 
       <% @user.posts.reverse.each do |post| %>
+          <hr>
           <div class="starls">
             <div class="starls_photo">
               <%= link_to(image_tag("noavatar.png", :alt => "No avatar"), user_path(@user)) %>
