@@ -313,6 +313,16 @@ button[type=submit]:active {
     width: 100%;
 }
 
+.wall-edit {
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+    border-radius: 12px;
+    width: 65%;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 10px 10px;
+    margin: auto;
+}
+
 .wall-post {
     background: #fff;
     box-shadow: 0 1px 1px rgba(136,153,166,0.15);
@@ -321,6 +331,7 @@ button[type=submit]:active {
     width: 100%;
     padding: 10px 10px;
     margin-bottom: 5px;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .wall {
@@ -330,6 +341,7 @@ button[type=submit]:active {
     float: left;
     width: 75%;
     padding: 10px 10px;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .starls {
@@ -372,6 +384,17 @@ button[type=submit]:active {
     color: #8899a6;
 }
 .wall  a:hover {
+    color: #292f33;
+    text-decoration: underline;
+}
+
+.wall-edit  a {
+    color: #8899a6;
+}
+.wall-edit  a:visited {
+    color: #8899a6;
+}
+.wall-edit  a:hover {
     color: #292f33;
     text-decoration: underline;
 }
