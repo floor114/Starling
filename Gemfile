@@ -6,6 +6,7 @@ gem 'rails', '4.2.4'
 
 gem 'devise'
 gem 'acts_as_commentable'
+gem 'paperclip', '~> 4.3'
 
 group :development, :test do
   gem 'sqlite3'
