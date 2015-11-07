@@ -32,14 +32,18 @@
               <div class="user_name_time">
                 <p><strong><%= link_to @user.name, user_path(@user) %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ " ago."), post%> </p>
                 <div class="delette-post">
-                <% if user_signed_in? and @user.id == current_user.id%>
-                  <%= link_to 'X', post, method: :delete %>
+                <% if user_signed_in?%>
+                      <% if @user.id == current_user.id %>
+                          <%= link_to 'X', post, method: :delete %>
+                      <% end %>
+
+                    <% unless current_user.likes?(post) %>
+                      <%= link_to 'Like', like_path(post) %>
+                    <% else %>
+                      <%= link_to 'Dislike', unlike_path(post) %>
+                    <% end %>
                 <% end %>
-                <% unless current_user.likes?(post) %>
-                  <%= link_to 'Like', like_path(post) %>
-                <% else %>
-                  <%= link_to 'Dislike', unlike_path(post) %>
-                <% end %>
+                  <p><%= post.likers_count %></p>
                 </div>
               </div>
               <p><%= post.content %></p>

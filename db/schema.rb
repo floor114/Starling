@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20151107090142) do
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.string   "follower_type"
     t.integer  "follower_id"
@@ -51,7 +59,7 @@ ActiveRecord::Schema.define(version: 20151107090142) do
     t.text     "content"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "likees_count", default: 0
+    t.integer  "likers_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|
