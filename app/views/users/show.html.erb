@@ -35,14 +35,20 @@
                 <% if user_signed_in? and @user.id == current_user.id%>
                   <%= link_to 'X', post, method: :delete %>
                 <% end %>
+                <% unless current_user.likes?(post) %>
+                  <%= link_to 'Like', like_path(post) %>
+                <% else %>
+                  <%= link_to 'Dislike', unlike_path(post) %>
+                <% end %>
                 </div>
               </div>
               <p><%= post.content %></p>
             </div>
             <div class="comments-count">
               <% if post.comments.size>0 %>
-                  <%= link_to post.comments.size.to_s+" comments", post %>
+                  <%= link_to post.comments.size.to_s+' comments', post %>
               <% end %>
+
             </div>
           </div>
       <% end %>

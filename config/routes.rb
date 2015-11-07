@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'home#index'
+  get 'post/:id/like', to: 'posts#like', as: :like
+  get 'post/:id/unlike', to: 'posts#unlike', as: :unlike
 
   resources :users, only: [:show, :edit, :update]
   resources :posts

@@ -83,7 +83,20 @@ class PostsController < ApplicationController
     else
       redirect_to user_path(current_user)
     end
+  end
 
+  def like
+    @user = current_user
+    @post = Post.find(params[:id])
+    @user.like!(@post)
+    redirect_to :back
+  end
+
+  def unlike
+    @user = current_user
+    @post = Post.find(params[:id])
+    @user.unlike!(@post)
+    redirect_to :back
   end
 
   private
