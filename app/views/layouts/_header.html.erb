@@ -1,19 +1,19 @@
 <header>
-  <div class="container clearfix">
-    <div class="logo">
-      <%= link_to image_tag("logo.png", alt: "Starling"), root_path %>
+  <div class='container clearfix'>
+    <div class='logo'>
+      <%= link_to image_tag('logo.png', alt: 'Starling'), root_path %>
     </div>
     <% if user_signed_in? %>
-        <nav class="top-menu">
-          <div class="list">
+        <nav class='top-menu'>
+          <div class='list'>
             <ul>
               <li>
-                <a href="#"><%= current_user.name %></a>
-                <ul class="dropdown">
-                  <li><%= link_to "New post", new_post_path%></li>
-                  <li><%= link_to "Profile", user_path(current_user)%></li>
-                  <li><%= link_to "Settings", edit_user_registration_path%></li>
-                  <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
+                <a href='#'><%= current_user.name %></a>
+                <ul class='dropdown'>
+                  <li><%= link_to 'New post', new_post_path%></li>
+                  <li><%= link_to 'Profile', user_path(current_user)%></li>
+                  <li><%= link_to 'Settings', edit_user_registration_path%></li>
+                  <li><%= link_to 'Log out', destroy_user_session_path, :method => 'delete' %></li>
                 </ul>
               </li>
             </ul>
@@ -21,9 +21,9 @@
         </nav>
 
     <% else %>
-        <nav class="top-menu">
-          <%= link_to "Sign up", new_user_registration_path %>
-          <%= link_to "Log in", new_user_session_path %>
+        <nav class='top-menu'>
+          <%= link_to 'Sign up', new_user_registration_path %>
+          <%= link_to 'Log in', new_user_session_path %>
         </nav>
     <% end %>
   </div>

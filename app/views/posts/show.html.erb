@@ -1,30 +1,41 @@
 <% provide(:title, 'Post: '+@post.id.to_s) %>
-<div class="container clearfix">
-  <div class="content">
+<div class='container clearfix'>
+  <div class='content'>
 
-    <div class="wall-post">
-          <div class="starls-post">
-            <div class="starls_photo">
-              <%= link_to(image_tag("noavatar.png", :alt => "No avatar"), user_path(User.find(@post.user_id))) %>
+    <div class='wall-post'>
+          <div class='starls-post'>
+            <div class='starls_photo'>
+              <%= link_to(image_tag('noavatar.png', :alt => 'No avatar'), user_path(User.find(@post.user_id))) %>
             </div>
-            <div class="starl-state">
-              <div class="user_name_time">
-                <p><strong><%= link_to User.find(@post.user_id).name, user_path(User.find(@post.user_id)) %></strong> - <%= link_to (time_ago_in_words(@post.created_at)+ " ago."), @post%> </p>
-                <div class="delette-post">
-                  <% if user_signed_in? and User.find(@post.user_id).id == current_user.id%>
+            <div class='starl-state'>
+              <div class='user_name_time'>
+                <p><strong><%= link_to User.find(@post.user_id).name, user_path(User.find(@post.user_id)) %></strong> - <%= link_to (time_ago_in_words(@post.created_at)+ ' ago.'), @post%> </p>
+                <div class='delette_post'>
+                  <% if user_signed_in? and User.find(@post.user_id).id == current_user.id %>
                       <%= link_to 'X', @post, method: :delete %>
                   <% end %>
                 </div>
+                <p>
+                  <% if user_signed_in?%>
+                      <% unless current_user.likes?(@post) %>
+                          <%= link_to image_tag('unlike.png', alt: 'unlike'), like_path(@post) %>
+                      <% else %>
+                          <%= link_to image_tag('like.png', alt: 'like'), unlike_path(@post) %>
+                      <% end %>
+                  <% end %>
+                  <%= @post.likers_count %>
+                </p>
+
               </div>
               <p><%= @post.content %></p>
             </div>
           </div>
     </div>
-    <div class="wall-post">
+    <div class='wall-post'>
       <%= form_for [@post, Comment.new] do |f| %>
-          <%= f.text_area :content, :label => "New Comment", as: :text, input_html:{ rows: "3"} %>
-          <div class="comment-button">
-          <%= f.button "Add Comment"%>
+          <%= f.text_area :content, :label => 'New Comment', as: :text, input_html:{ rows: '3'} %>
+          <div class='comment-button'>
+          <%= f.button 'Add Comment'%>
           </div>
       <%end%>
       <%= render :partial =>@post.comments.reverse %>

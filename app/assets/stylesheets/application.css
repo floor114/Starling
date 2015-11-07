@@ -365,6 +365,9 @@ button[type=submit]:active {
     margin-bottom: 10px;
     border-bottom: 1px solid #dddddd;
 }
+.starl-state {
+    min-height: 48px;
+}
 
 .starl-state p{
     text-align: justify;
@@ -565,5 +568,23 @@ button[type=submit]:active {
     width: 50%;
 }
 
+.delette_post {
+    float: left;
+    width: 50px;
+}
+
+.likes img{
+    height: 13px;
+}
+
+.likes {
+    float: left;
+    color: #8899a6;
+    width: 50px;
+}
+
+.item_bar {
+    padding-top: 5px;
+}
 
 
