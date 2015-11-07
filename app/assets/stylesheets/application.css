@@ -374,7 +374,7 @@ button[type=submit]:active {
 }
 
 .comments-count {
-    float: right;
+    float: left;
 }
 
 .starls:after,.cf:before {content: '';display: table;}
@@ -386,6 +386,8 @@ button[type=submit]:active {
 .starls-post {zoom: 1;}
 
 .user_name_time {
+    font: 13px Arial,sans-serif;
+    color: #8899a6;
     padding-bottom: 5px;
 }
 
@@ -450,10 +452,6 @@ button[type=submit]:active {
     color: #292f33;
 }
 
-.user_name_time  p{
-    font: 13px Arial,sans-serif;
-    color: #8899a6;
-}
 
 .starls_photo img {
     width: 48px;
@@ -568,9 +566,12 @@ button[type=submit]:active {
     width: 50%;
 }
 
-.delette_post {
-    float: left;
-    width: 50px;
+.delete_post {
+    float: right;
+}
+
+.delete_post img{
+    height: 10px;
 }
 
 .likes img{
@@ -578,9 +579,12 @@ button[type=submit]:active {
 }
 
 .likes {
-    float: left;
+    float: right;
     color: #8899a6;
-    width: 50px;
+}
+
+.create_comment {
+    float: left;
 }
 
 .item_bar {

@@ -1,58 +1,65 @@
 <% provide(:title, @user.name) %>
-<div class="container clearfix">
-  <div class="content">
-    <div class="user_info">
-      <div class="avatar">
+<div class='container clearfix'>
+  <div class='content'>
+    <div class='user_info'>
+      <div class='avatar'>
         <%= image_tag @user.avatar.url %>
       </div>
-      <div class="info">
+      <div class='info'>
         <h1><%= @user.name %></h1>
         <!--<h3>@floor114</h3>-->
         <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-        <div class="more_info">
+        <div class='more_info'>
           <!--<p>Khmelnytsky</p>-->
-          <!--<a href="vk.com/floor114">vk.com/floor114</a>-->
-          <p>In Starling from <%= @user.created_at.strftime("%B")%>
+          <!--<a href='vk.com/floor114'>vk.com/floor114</a>-->
+          <p>In Starling from <%= @user.created_at.strftime('%B')%>
             <%=@user.created_at.year %></p>
         </div>
       </div>
     </div>
-    <div class="wall">
-      <div class="artcl">
+    <div class='wall'>
+      <div class='artcl'>
         <h1>Posts</h1>
       </div>
 
       <% @user.posts.reverse.each do |post| %>
           <hr>
-          <div class="starls">
-            <div class="starls_photo">
+          <div class='starls'>
+            <div class='starls_photo'>
               <%= image_tag @user.avatar.url %>
             </div>
-            <div class="starl-state">
-              <div class="user_name_time">
-                <p><strong><%= link_to @user.name, user_path(@user) %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%> </p>
+            <div class='starl-state'>
+              <div class='user_name_time'>
+                <strong><%= link_to @user.name, user_path(@user) %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%>
+                    <div class='delete_post'>
+                      <% if user_signed_in? and @user.id == current_user.id %>
+                          <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete %>
+                      <% end %>
+                    </div>
               </div>
               <p><%= post.content %></p>
             </div>
-            <div class="item_bar">
-                <div class="delette_post">
-                  <% if user_signed_in? and @user.id == current_user.id %>
-                      <%= link_to 'Delete', post, method: :delete %>
+            <div class='item_bar'>
+
+            <div class='comments-count'>
+              <% if post.comments.size>0 %>
+                    <%= link_to post.comments.size.to_s+' comments', post %>
+              <% else %>
+                  <% if user_signed_in?%>
+                      <%= link_to 'Comment', post %>
                   <% end %>
-                </div>
-                <div class="likes">
+              <% end %>
+              </div>
+                <div class='likes'>
                   <% if user_signed_in?%>
                       <% unless current_user.likes?(post) %>
                           <%= link_to image_tag('unlike.png', alt: 'unlike'), like_path(post) %>
                       <% else %>
                           <%= link_to image_tag('like.png', alt: 'like'), unlike_path(post) %>
                       <% end %>
-                      <%= post.likers_count %>
-                  <% end %>
-                </div>
-                <div class="comments-count">
-                  <% if post.comments.size>0 %>
-                      <%= link_to post.comments.size.to_s+' comments', post %>
+                      <% if post.likers_count >0 %>
+                          <%= post.likers_count %>
+                      <% end %>
                   <% end %>
                 </div>
             </div>
