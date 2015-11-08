@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'post/:id/like', to: 'posts#like', as: :like
   get 'post/:id/unlike', to: 'posts#unlike', as: :unlike
+  get 'users/:id/feeds', to: 'users#feeds', as: :feeds
   post 'users/:id/follow', to: 'users#follow', as: :follow
   post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
 

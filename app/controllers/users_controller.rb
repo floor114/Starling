@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+
+  def feeds
+    @user = current_user
+    @followers = @user.followers(User)
+    followees_ids = @user.followees(User).map(&:id)
+    @posts = Post.where(:user_id => followees_ids)
+  end
+
   def index
     @users = User.all
 
