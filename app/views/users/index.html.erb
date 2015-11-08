@@ -13,11 +13,11 @@
               <hr>
               <div class='starls'>
                 <div class='starls_photo'>
-                  <%= image_tag user.avatar.url %>
+                  <%= link_to image_tag(user.avatar.url), user_path(user) %>
                 </div>
                 <div class='starl-state'>
                   <div class='user_name_time'>
-                    <strong><%= user.name %></strong>
+                    <strong><%= link_to user.name, user_path(user) %></strong>
                   </div>
                   <div class="users_follow">
                       <% if user_signed_in? and user.id != current_user.id%>
