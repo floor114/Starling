@@ -8,6 +8,7 @@ gem 'devise'
 gem 'acts_as_commentable'
 gem 'paperclip', '~> 4.3'
 gem 'socialization'
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3'
