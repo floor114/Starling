@@ -1,2 +1,3 @@
 GMAIL_USERNAME: "username"
 GMAIL_PASSWORD: "password"
+GMAIL_DOMAIN: "domain"
