@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107090142) do
+ActiveRecord::Schema.define(version: 20151108163347) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -84,6 +84,9 @@ ActiveRecord::Schema.define(version: 20151107090142) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "likees_count",           default: 0
+    t.integer  "followees_count",        default: 0
+    t.integer  "followers_count",        default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -12,8 +12,9 @@
         <div class='more_info'>
           <!--<p>Khmelnytsky</p>-->
           <!--<a href='vk.com/floor114'>vk.com/floor114</a>-->
-          <p>In Starling from <%= @user.created_at.strftime('%B')%>
-            <%=@user.created_at.year %></p>
+          <p>Posts:  <%= @user.posts.count%></p>
+          <p>Following:  <%= @user.followees_count%></p>
+          <p>Followers:  <%= @user.followers_count%></p>
         </div>
         <div class='follow'>
           <% if @user.id != current_user.id%>
