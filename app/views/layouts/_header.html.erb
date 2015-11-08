@@ -10,6 +10,7 @@
               <li>
                 <a href='#'><%= current_user.name %></a>
                 <ul class='dropdown'>
+                  <li><%= link_to 'Users', users_path%></li>
                   <li><%= link_to 'New post', new_post_path%></li>
                   <li><%= link_to 'Profile', user_path(current_user)%></li>
                   <li><%= link_to 'Settings', edit_user_registration_path%></li>

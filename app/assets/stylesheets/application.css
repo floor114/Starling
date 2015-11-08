@@ -260,13 +260,29 @@ hr {
     border: none;
 }
 
-.comment-button button[type=submit], input[type=submit]{
+.comment-button input[type=submit]{
     cursor: hand;
     margin-top: 5px;
     font:  bold 14px Arial, sans-serif;
     border: none;
     color: white;
     padding: 10px 13px;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+}
+
+.users_follow input[type=submit] {
+    float: right;
+    cursor: default;
+    width: 15%;
+    margin-top: -15px;
+    font: bold 14px Arial, sans-serif;
+    border: none;
+    color: white;
+    padding: 10px 10px;
     text-decoration: none;
     border-radius: 3px;
     background: rgb(64,199,129);
@@ -354,6 +370,16 @@ button[type=submit]:active, input[type=submit]:active {
     border: 1px solid rgba(0,0,0,0.05);
 }
 
+.wall-users {
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+    border-radius: 12px;
+    padding: 10px 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+
+
 .starls {
     padding-left: 10px;
     padding-right: 10px;
@@ -391,6 +417,14 @@ button[type=submit]:active, input[type=submit]:active {
     padding-bottom: 5px;
 }
 
+.wall-users  a {
+     color: #8899a6;
+}
+
+.wall-users  a:hover {
+    color: #292f33;
+    text-decoration: underline;
+}
 
 .wall  a {
     color: #8899a6;

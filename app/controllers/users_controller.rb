@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.paginate(:page => params[:page], :per_page => 15).order(:created_at).reverse_order
 
     respond_to do |format|
       format.html # index.html.erb

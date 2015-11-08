@@ -16,7 +16,7 @@
             <%=@user.created_at.year %></p>
         </div>
         <div class='follow'>
-          <% if @user.id != current_user.id%>
+          <% if user_signed_in? and @user.id != current_user.id%>
               <% unless current_user.follows?(@user)%>
                   <%= button_to 'Follow', follow_path(@user) %>
               <% else %>

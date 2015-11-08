@@ -1,8 +1,45 @@
 <% provide(:title, 'Users') %>
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<% @users.each do |user| %>
-    <%= user.name %><br>
-    <%= user.email %><br>
-    ffff
-<% end %>
+
+<div class='container clearfix'>
+  <div class='content'>
+
+    <div class='wall-users'>
+      <div class='artcl'>
+        <h1>Users</h1>
+      </div>
+
+      <% @users.each do |user| %>
+          <% if user.id != current_user.id%>
+              <hr>
+              <div class='starls'>
+                <div class='starls_photo'>
+                  <%= image_tag user.avatar.url %>
+                </div>
+                <div class='starl-state'>
+                  <div class='user_name_time'>
+                    <strong><%= user.name %></strong>
+                  </div>
+                  <div class="users_follow">
+                      <% if user_signed_in? and user.id != current_user.id%>
+                          <% unless current_user.follows?(user)%>
+                              <%= button_to 'Follow', follow_path(user) %>
+                          <% else %>
+                              <%= button_to 'Unfollow', unfollow_path(user) %>
+                          <% end %>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+      <% end %>
+      <div class="pagination">
+        <%= will_paginate @posts %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
