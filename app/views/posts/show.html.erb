@@ -5,7 +5,7 @@
     <div class='wall-post'>
           <div class='starls-post'>
             <div class='starls_photo'>
-              <%= link_to(image_tag('noavatar.png', :alt => 'No avatar'), user_path(User.find(@post.user_id))) %>
+              <%= image_tag User.find(@post.user_id).avatar.url %>
             </div>
             <div class="starl-state">
               <div class="user_name_time">
@@ -20,15 +20,7 @@
             </div>
             <div class="item_bar">
 
-              <div class="comments-count">
-                <% if @post.comments.size>0 %>
-                    <%= link_to @post.comments.size.to_s+' comments', @post %>
-                <% else %>
-                    <% if user_signed_in?%>
-                        <%= link_to 'Comment', @post %>
-                    <% end %>
-                <% end %>
-              </div>
+
               <div class="likes">
                 <% if user_signed_in?%>
                     <% unless current_user.likes?(@post) %>

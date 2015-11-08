@@ -15,7 +15,17 @@
           <p>In Starling from <%= @user.created_at.strftime('%B')%>
             <%=@user.created_at.year %></p>
         </div>
+        <div class='follow'>
+          <% if @user.id != current_user.id%>
+              <% unless current_user.follows?(@user)%>
+                  <%= button_to 'Follow', follow_path(@user) %>
+              <% else %>
+                  <%= button_to 'Unfollow', unfollow_path(@user) %>
+              <% end %>
+          <% end %>
+        </div>
       </div>
+
     </div>
     <div class='wall'>
       <div class='artcl'>
@@ -43,11 +53,13 @@
 
             <div class='comments-count'>
               <% if post.comments.size>0 %>
-                    <%= link_to post.comments.size.to_s+' comments', post %>
-              <% else %>
-                  <% if user_signed_in?%>
-                      <%= link_to 'Comment', post %>
+                  <% if post.comments.size==1 %>
+                    <%= link_to post.comments.size.to_s+' comment', post %>
+                  <% else %>
+                      <%= link_to post.comments.size.to_s+' comments', post %>
                   <% end %>
+              <% else %>
+                  <%= link_to 'Comment', post %>
               <% end %>
               </div>
                 <div class='likes'>

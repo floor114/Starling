@@ -260,7 +260,7 @@ hr {
     border: none;
 }
 
-.comment-button button[type=submit]{
+.comment-button button[type=submit], input[type=submit]{
     cursor: hand;
     margin-top: 5px;
     font:  bold 14px Arial, sans-serif;
@@ -274,7 +274,7 @@ hr {
     transition: 0.2s;
 }
 
-button[type=submit] {
+button[type=submit], input[type=submit] {
     cursor: hand;
     width: 100%;
     margin-top: 5px;
@@ -288,8 +288,8 @@ button[type=submit] {
     box-shadow: 0 -3px rgb(53,167,110) inset;
     transition: 0.2s;
 }
-button[type=submit]:hover { background: rgb(53, 167, 110);}
-button[type=submit]:active {
+button[type=submit]:hover, input[type=submit]:hover { background: rgb(53, 167, 110);}
+button[type=submit]:active, input[type=submit]:active {
     background: rgb(33,147,90);
     box-shadow: 0 3px rgb(33,147,90) inset;
 }
@@ -297,7 +297,7 @@ button[type=submit]:active {
 
 
 .avatar {
-    margin-right: 20px;
+    margin: 0 15px;
     background: #fff;
     border: 5px solid #fff;
     border-radius: 12px;

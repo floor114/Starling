@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'post/:id/like', to: 'posts#like', as: :like
   get 'post/:id/unlike', to: 'posts#unlike', as: :unlike
+  post 'users/:id/follow', to: 'users#follow', as: :follow
+  post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
