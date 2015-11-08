@@ -32,7 +32,7 @@
         <h1>Posts</h1>
       </div>
 
-          <% @posts.reverse.each do |post| %>
+          <% @posts.each do |post| %>
               <hr>
               <div class='starls'>
                 <div class='starls_photo'>
@@ -72,9 +72,9 @@
                 </div>
               </div>
           <% end %>
-
-
-
+      <div class="pagination">
+        <%= will_paginate @posts %>
+      </div>
     </div>
   </div>
 </div>

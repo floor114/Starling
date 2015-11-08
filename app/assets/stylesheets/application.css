@@ -395,9 +395,6 @@ button[type=submit]:active, input[type=submit]:active {
 .wall  a {
     color: #8899a6;
 }
-.wall  a:visited {
-    color: #8899a6;
-}
 .wall  a:hover {
     color: #292f33;
     text-decoration: underline;
@@ -590,5 +587,36 @@ button[type=submit]:active, input[type=submit]:active {
 .item_bar {
     padding-top: 5px;
 }
+
+.pagination {
+    text-align: center;
+    cursor: default;
+}
+
+.pagination a, .pagination span {
+    padding: 0.2em 0.3em;
+}
+
+.pagination .disabled {
+    color: #aaaaaa;
+    font: 10px Arial,sans-serif;
+}
+
+.pagination .current {
+    color: #ffcc4d;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.pagination a {
+    text-decoration: none;
+    font: bold 14px Arial,sans-serif;
+    color: #292f33;
+}
+
+.pagination a:hover, .pagination a:focus {
+    text-decoration: underline;
+}
+
 
 
