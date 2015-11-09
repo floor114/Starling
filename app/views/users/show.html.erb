@@ -67,10 +67,10 @@
                       <% unless current_user.likes?(post) %>
                           <%= link_to image_tag('unlike.png', alt: 'unlike'), like_path(post) %>
                       <% else %>
-                          <%= link_to image_tag('like.png', alt: 'like'), unlike_path(post) %>
+                          <%= link_to image_tag('like.png', alt: 'like'), unlike_path(post)%>
                       <% end %>
                       <% if post.likers_count >0 %>
-                          <%= post.likers_count %>
+                            <%= post.likers_count %>
                       <% end %>
                   <% end %>
                 </div>
