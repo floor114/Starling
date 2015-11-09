@@ -10,7 +10,7 @@ gem 'paperclip', '~> 4.3'
 gem 'socialization'
 gem 'figaro'
 gem 'will_paginate'
-gem 'aws-sdk'
+gem 'aws-sdk-v1'
 
 group :development, :test do
   gem 'sqlite3'
