@@ -1,4 +1,4 @@
-<% provide(:title, 'Post: '+@post.id.to_s) %>
+<% provide(:title, 'Post '+@post.id.to_s) %>
 <div class='container clearfix'>
   <div class='content'>
 
@@ -16,8 +16,6 @@
                   <% end %>
                 </div>
               </div>
-
-
               <p><%= @post.content %></p>
             </div>
             <div class="item_bar">
