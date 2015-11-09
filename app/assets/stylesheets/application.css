@@ -267,8 +267,8 @@ hr {
     padding: 10px 13px;
     text-decoration: none;
     border-radius: 3px;
-    background: rgb(64,199,129);
-    box-shadow: 0 -3px rgb(53,167,110) inset;
+    background: #ffcc4d;
+    box-shadow: 0 -3px #F9B91B inset;
     transition: 0.2s;
 }
 
@@ -283,8 +283,8 @@ hr {
     padding: 10px 10px;
     text-decoration: none;
     border-radius: 3px;
-    background: rgb(64,199,129);
-    box-shadow: 0 -3px rgb(53,167,110) inset;
+    background: #ffcc4d;
+    box-shadow: 0 -3px #F9B91B inset;
     transition: 0.2s;
 }
 
@@ -298,15 +298,15 @@ button[type=submit], input[type=submit] {
     padding: 10px 13px;
     text-decoration: none;
     border-radius: 3px;
-    background: rgb(64,199,129);
-    box-shadow: 0 -3px rgb(53,167,110) inset;
+    background: #ffcc4d;
+    box-shadow: 0 -3px #F9B91B inset;
     transition: 0.2s;
 }
 
-button[type=submit]:hover, input[type=submit]:hover { background: rgb(53, 167, 110);}
+button[type=submit]:hover, input[type=submit]:hover { background: #F9B91B;}
 button[type=submit]:active, input[type=submit]:active {
-    background: rgb(33,147,90);
-    box-shadow: 0 3px rgb(33,147,90) inset;
+    background: #F9B91B;
+    box-shadow: 0 3px rgb#F9B91B inset;
 }
 
 .avatar {
@@ -415,11 +415,6 @@ button[type=submit]:active, input[type=submit]:active {
     color: #8899a6;
 }
 
-.wall  a:hover {
-    color: #292f33;
-    text-decoration: underline;
-}
-
 .wall-edit  a {
     color: #8899a6;
 }
@@ -441,7 +436,7 @@ button[type=submit]:active, input[type=submit]:active {
     color: #8899a6;
 }
 
-.wall-post  a:hover {
+.starl-state  a:hover {
     color: #292f33;
     text-decoration: underline;
 }
@@ -585,8 +580,19 @@ button[type=submit]:active, input[type=submit]:active {
 }
 
 .delete_post {
+    display: none;
     float: right;
 }
+
+.starls:hover .delete_post{
+    display: block;
+}
+
+.starls-post:hover .delete_post{
+    display: block;
+}
+
+
 
 .delete_post img{
     height: 10px;
@@ -597,8 +603,18 @@ button[type=submit]:active, input[type=submit]:active {
 }
 
 .likes {
+    text-align: center;
+    min-width: 32.68px;
+    padding: 1px 3px;
     float: right;
     color: #8899a6;
+}
+
+.likes:hover {
+    padding: 0 3px;
+    border-radius: 4px;
+    background: #fff7e4;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .create_comment {

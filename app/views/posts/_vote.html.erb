@@ -1,5 +1,4 @@
 <% if user_signed_in?%>
     <% method = current_user.likes?(Post.find(post_id)) ? ["delete", ""] : ["post", "un"] %>
-    <%= link_to image_tag("#{method[1]}like.png", alt: "#{method[1]}like"), vote_post_path(Post.find(post_id)), remote: true, method: method[0].to_sym %>
-    <%= count if count>0 %>
+    <%= link_to "#{image_tag("#{method[1]}lik.png", alt: "#{method[1]}like")} #{ count if count>0 }".html_safe, vote_post_path(Post.find(post_id)), remote: true, method: method[0].to_sym %>
 <% end %>
