@@ -10,10 +10,6 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-
-
-
-
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -97,6 +93,16 @@ Rails.application.configure do
       password:       ENV['SENDGRID_PASSWORD'],
       authentication: 'plain',
       enable_starttls_auto: true
+  }
+
+  # Setup S3
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['S3_BUCKET_NAME'],
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
   }
 
 end
