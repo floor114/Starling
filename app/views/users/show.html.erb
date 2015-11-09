@@ -15,14 +15,8 @@
           <p>In Starling from <%= @user.created_at.strftime('%B')%>
             <%=@user.created_at.year %></p>
         </div>
-        <div class='follow'>
-          <% if user_signed_in? and @user.id != current_user.id%>
-              <% unless current_user.follows?(@user)%>
-                  <%= button_to 'Follow', follow_path(@user) %>
-              <% else %>
-                  <%= button_to 'Unfollow', unfollow_path(@user) %>
-              <% end %>
-          <% end %>
+        <div class='follow <%= @user.class %>-<%= @user.id %>'>
+              <%= render 'following', user_id: @user.id%>
         </div>
       </div>
 
@@ -42,12 +36,11 @@
               <div class='user_name_time'>
                 <strong><%= @user.name %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%>
                     <div class='delete_post'>
-                      <% if user_signed_in? and @user.id == current_user.id %>
+                      <% if user_signed_in? and @user == current_user %>
                           <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete %>
                       <% end %>
                     </div>
               </div>
-              <p><%= post.content %></p>
             </div>
             <div class='item_bar'>
 
@@ -62,18 +55,9 @@
                   <%= link_to 'Comment', post %>
               <% end %>
               </div>
-                <div class='likes'>
-                  <% if user_signed_in?%>
-                      <% unless current_user.likes?(post) %>
-                          <%= link_to image_tag('unlike.png', alt: 'unlike'), like_path(post) %>
-                      <% else %>
-                          <%= link_to image_tag('like.png', alt: 'like'), unlike_path(post)%>
-                      <% end %>
-                      <% if post.likers_count >0 %>
-                            <%= post.likers_count %>
-                      <% end %>
-                  <% end %>
-                </div>
+                  <div class="likes <%= post.class %>-<%= post.id %>">
+                    <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
+                  </div>
             </div>
           </div>
       <% end %>

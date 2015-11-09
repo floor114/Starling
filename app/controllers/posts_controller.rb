@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @likeable = @post
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -85,27 +86,27 @@ class PostsController < ApplicationController
     end
   end
 
-  def like
+  def vote
     @user = current_user
-    @post = Post.find(params[:id])
-    @user.like!(@post)
-    redirect_to :back
-  end
-
-  def unlike
-    @user = current_user
-    @post = Post.find(params[:id])
-    @user.unlike!(@post)
-    redirect_to :back
+    @post = Post.find params[:id]
+    @kek = @post.likers_count
+    if request.post?
+      @user.like!(@post)
+      @kek+=1
+    elsif request.delete?
+      @user.unlike!(@post)
+      @kek-=1
+    end
+    respond_to do |format|
+      format.js #-> only XHR allowed
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:user_id, :content)
     end

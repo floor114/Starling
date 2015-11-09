@@ -2,16 +2,18 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :posts do
+    match :vote, on: :member, via: [:post, :delete]
     resources :comments
   end
+
+  # match :following, via: [:post, :delete]
+
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'home#index'
-  get 'post/:id/like', to: 'posts#like', as: :like
-  get 'post/:id/unlike', to: 'posts#unlike', as: :unlike
   get 'users/:id/feeds', to: 'users#feeds', as: :feeds
-  post 'users/:id/follow', to: 'users#follow', as: :follow
-  post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
+  post '/users/:id/following', to: 'users#following', as: :follow
+  delete '/users/:id/following', to: 'users#following', as: :unfollow
 
   resources :users
   resources :posts

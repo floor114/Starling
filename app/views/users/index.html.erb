@@ -19,14 +19,8 @@
                   <div class='user_name_time'>
                     <strong><%= link_to user.name, user_path(user) %></strong>
                   </div>
-                  <div class="users_follow">
-                      <% if user_signed_in? and user.id != current_user.id%>
-                          <% unless current_user.follows?(user)%>
-                              <%= button_to 'Follow', follow_path(user) %>
-                          <% else %>
-                              <%= button_to 'Unfollow', unfollow_path(user) %>
-                          <% end %>
-                      <% end %>
+                  <div class='users_follow <%= user.class %>-<%= user.id %>'>
+                    <%= render 'following', user_id: user.id%>
                   </div>
                 </div>
               </div>

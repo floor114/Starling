@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def feeds
     @user = current_user
@@ -21,16 +22,16 @@ class UsersController < ApplicationController
     @posts = @user.posts.paginate(:page => params[:page], :per_page => 15).order(:created_at).reverse_order
   end
 
-  def follow
+  def following
     @user = User.find(params[:id])
-    current_user.follow!(@user)
-    redirect_to :back
-  end
-
-  def unfollow
-    @user = User.find(params[:id])
-    current_user.unfollow!(@user)
-    redirect_to :back
+    if request.post?
+      current_user.follow!(@user)
+    elsif request.delete?
+      current_user.unfollow!(@user)
+    end
+    respond_to do |format|
+      format.js #-> only XHR allowed
+    end
   end
 
 end

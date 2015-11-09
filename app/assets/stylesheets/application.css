@@ -54,7 +54,7 @@ h2 {
 
 #wrapper {
     height: 100vh;
-    background: url(bg.jpg) no-repeat;
+    background: url(background.jpg) no-repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
@@ -196,8 +196,6 @@ strong{
     font-size: 24px;
 }
 
-
-
 .login h2 {
     font-size: 15px;
     margin-top: 10px;
@@ -304,13 +302,12 @@ button[type=submit], input[type=submit] {
     box-shadow: 0 -3px rgb(53,167,110) inset;
     transition: 0.2s;
 }
+
 button[type=submit]:hover, input[type=submit]:hover { background: rgb(53, 167, 110);}
 button[type=submit]:active, input[type=submit]:active {
     background: rgb(33,147,90);
     box-shadow: 0 3px rgb(33,147,90) inset;
 }
-
-
 
 .avatar {
     margin: 0 15px;
@@ -328,16 +325,6 @@ button[type=submit]:active, input[type=submit]:active {
     height: 100%;
     width: 100%;
 }
-
-/*.wall-edit {*/
-    /*background: #fff;*/
-    /*box-shadow: 0 1px 1px rgba(136,153,166,0.15);*/
-    /*border-radius: 12px;*/
-    /*float: right;*/
-    /*width: 65%;*/
-    /*padding: 10px 10px;*/
-    /*border: 1px solid rgba(0,0,0,0.05);*/
-/*}*/
 
 .wall-edit {
     background: #fff;
@@ -378,12 +365,9 @@ button[type=submit]:active, input[type=submit]:active {
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-
-
 .starls {
     padding-left: 10px;
     padding-right: 10px;
-    /*border-top: 1px solid #dddddd;*/
 }
 
 .starls-post {
@@ -391,6 +375,7 @@ button[type=submit]:active, input[type=submit]:active {
     margin-bottom: 10px;
     border-bottom: 1px solid #dddddd;
 }
+
 .starl-state {
     min-height: 48px;
 }
@@ -429,6 +414,7 @@ button[type=submit]:active, input[type=submit]:active {
 .wall  a {
     color: #8899a6;
 }
+
 .wall  a:hover {
     color: #292f33;
     text-decoration: underline;
@@ -437,9 +423,11 @@ button[type=submit]:active, input[type=submit]:active {
 .wall-edit  a {
     color: #8899a6;
 }
+
 .wall-edit  a:visited {
     color: #8899a6;
 }
+
 .wall-edit  a:hover {
     color: #292f33;
     text-decoration: underline;
@@ -448,9 +436,11 @@ button[type=submit]:active, input[type=submit]:active {
 .wall-post  a {
     color: #8899a6;
 }
+
 .wall-post  a:visited {
     color: #8899a6;
 }
+
 .wall-post  a:hover {
     color: #292f33;
     text-decoration: underline;
@@ -466,23 +456,24 @@ button[type=submit]:active, input[type=submit]:active {
     color: #292f33;
     text-decoration: underline;
 }
+
 .user_name_time  a {
     color: #8899a6;
 }
+
 .user_name_time  a:visited {
     color: #8899a6;
 }
+
 .user_name_time  a:hover {
     color: #8899a6;
     text-decoration: underline;
 }
 
-
 .user_name_time  strong{
     font: bold 14px Arial,sans-serif;
     color: #292f33;
 }
-
 
 .starls_photo img {
     width: 48px;
@@ -490,9 +481,6 @@ button[type=submit]:active, input[type=submit]:active {
     float: left;
     border-radius: 5px;
     margin: 0 15px 0 0;
-}
-
-.starls_photo {
 }
 
 .user_info {
@@ -538,7 +526,6 @@ button[type=submit]:active, input[type=submit]:active {
     text-decoration: underline;
 }
 
-
 .list ul li{
     position: relative;
 }
@@ -583,13 +570,13 @@ button[type=submit]:active, input[type=submit]:active {
     color: #fff;
 }
 
-
 #left {
     position: absolute;
     left: 0;
     top: 0;
     width: 50%;
 }
+
 #right {
     position: absolute;
     right: 0;

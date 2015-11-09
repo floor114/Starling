@@ -58,18 +58,9 @@
                       <%= link_to 'Comment', post %>
                   <% end %>
                   </div>
-                    <div class='likes'>
-                      <% if user_signed_in?%>
-                          <% unless current_user.likes?(post) %>
-                              <%= link_to image_tag('unlike.png', alt: 'unlike'), like_path(post) %>
-                          <% else %>
-                              <%= link_to image_tag('like.png', alt: 'like'), unlike_path(post) %>
-                          <% end %>
-                          <% if post.likers_count >0 %>
-                              <%= post.likers_count %>
-                          <% end %>
-                      <% end %>
-                    </div>
+                  <div class="likes <%= post.class %>-<%= post.id %>">
+                    <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
+                  </div>
                 </div>
               </div>
           <% end %>
