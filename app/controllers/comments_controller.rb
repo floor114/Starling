@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     if @comment.user_id == current_user.id
       respond_to do |format|
         if @comment.update(comment_params)
-          format.html { redirect_to post_path(@comment.post_id), notice: ['block', 'Post was successfully updated.'] }
+          format.html { redirect_to post_path(@comment.post_id) }
           format.json { render :show, status: :ok, location: @comment }
         else
           format.html { render :edit }

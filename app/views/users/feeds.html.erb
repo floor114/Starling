@@ -6,8 +6,11 @@
       <div class='artcl'>
         Posts
       </div>
+      <hr>
+      <% if @posts.count < 1 %>
+        <div class="an-action"> <%= link_to 'Follow users...', users_path %> </div>
+      <% end %>
           <% @posts.each do |post| %>
-              <hr>
               <div class='starls'>
                 <div class="<%= post.class %>-<%= post.id %>">
                   <%= render 'posts/post', post: post, type: true %>

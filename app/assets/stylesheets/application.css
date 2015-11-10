@@ -705,5 +705,14 @@ button[type=submit]:active, input[type=submit]:active {
     color: #3a87ad;
 }
 
+.an-action {
+    padding: 7px 0;
+    text-align: center;
+}
+
+.an-action a, p{
+    font: 16px Arial, sans-serif;
+    color: #ffcc4d;
+}
 
 

@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: ['block', 'Post was successfully updated.'] }
+        format.html { redirect_to @post }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

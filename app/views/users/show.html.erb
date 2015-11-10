@@ -7,10 +7,21 @@
         Posts
         <%= render 'shared/alert'%>
       </div>
+      <hr>
+      <% if @posts.count < 1 %>
+          <div class="an-action">
+          <% if current_user == @user %>
+            <%= link_to 'Create a post...', new_post_path %>
+          <% else %>
+            <p>This user don't have a posts.</p>
+          <% end %>
+          </div>
+      <% end %>
 
       <% @posts.each do |post| %>
-          <hr>
+
           <div class='starls'>
+
             <div class="<%= post.class %>-<%= post.id %>">
                 <%= render 'posts/post', post: post, type: true%>
             </div>
