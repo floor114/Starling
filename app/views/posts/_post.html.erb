@@ -32,17 +32,20 @@
   <p><%= post.content %></p>
 </div>
 <div class='item_bar'>
-  <div class='comments-count'>
-    <% if post.comments.size>0 %>
-        <% if post.comments.size==1 %>
-            <%= link_to post.comments.size.to_s+' comment', post %>
+  <% if type %>
+      <div class='comments-count'>
+        <% if post.comments.size>0 %>
+            <% if post.comments.size==1 %>
+                <%= link_to post.comments.size.to_s+' comment', post %>
+            <% else %>
+                <%= link_to post.comments.size.to_s+' comments', post %>
+            <% end %>
         <% else %>
-            <%= link_to post.comments.size.to_s+' comments', post %>
+            <%= link_to 'Comment', post %>
         <% end %>
-    <% else %>
-        <%= link_to 'Comment', post %>
-    <% end %>
-  </div>
+      </div>
+  <% end %>
+
   <div class="likes like-<%= post.id %>">
     <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
   </div>
