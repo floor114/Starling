@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function hide_flash(){
+    setTimeout(function(){
+        $('.alert').fadeOut(2000);
+    }, 500);
+}
+
+var main = function(){
+
+    var hide = hide_flash();
+    $('.alert').mouseover(function(){
+        clearTimeout(hide);
+        $(this).stop().animate({opacity: '100'});
+    })
+        .mouseout(function(){
+            hide = hide_flash();
+        });
+};
+
+$(document).ready(main);
+$(document).on('page:load', main);

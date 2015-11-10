@@ -2,6 +2,7 @@
 <div class='container clearfix'>
   <div class='content'>
     <div class='user_info'>
+
       <div class='avatar'>
         <%= image_tag @user.avatar.url %>
       </div>
@@ -23,7 +24,12 @@
     </div>
     <div class='wall'>
       <div class='artcl'>
-        <h1>Posts</h1>
+        Posts
+        <% if flash[:notice] %>
+            <div class="alert alert<%= '-'+flash[:notice][0] %>">
+              <%= flash[:notice][1] %>
+            </div>
+        <% end %>
       </div>
 
       <% @posts.each do |post| %>
