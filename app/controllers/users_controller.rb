@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:feeds, :index, :following]
 
   def feeds
     @user = current_user
