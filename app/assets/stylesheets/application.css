@@ -482,6 +482,7 @@ button[type=submit]:active, input[type=submit]:active {
 }
 
 .info h1 {
+    text-align: center;
     padding-top: 210px;
     font: bold 22px Arial,sans-serif;
     color: #292f33;
@@ -710,7 +711,12 @@ button[type=submit]:active, input[type=submit]:active {
     text-align: center;
 }
 
-.an-action a, p{
+.an-action a{
+    font: 16px Arial, sans-serif;
+    color: #ffcc4d;
+}
+
+.an-action p{
     font: 16px Arial, sans-serif;
     color: #ffcc4d;
 }
