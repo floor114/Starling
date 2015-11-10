@@ -41,7 +41,7 @@
         <%= link_to 'Comment', post %>
     <% end %>
   </div>
-  <div class="likes <%= post.class %>-<%= post.id %>">
+  <div class="likes like-<%= post.id %>">
     <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
   </div>
 </div>

@@ -1,1 +1,1 @@
-$(".<%= @post.class %>-<%= @post.id %>").html("<%= escape_javascript(render 'posts/vote', post_id: @post.id, count: @kek) %>");
+$(".like-<%= @post.id %>").html("<%= escape_javascript(render 'posts/vote', post_id: @post.id, count: @kek) %>");
