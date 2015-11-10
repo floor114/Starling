@@ -5,33 +5,17 @@
 
     <div class='wall-users'>
       <div class='artcl'>
-        <h1>Users</h1>
+        Users
       </div>
 
       <% @users.each do |user| %>
           <% if user.id != current_user.id%>
-              <hr>
-              <div class='starls'>
-                <div class='starls_photo'>
-                  <%= link_to image_tag(user.avatar.url), user_path(user) %>
-                </div>
-                <div class='starl-state'>
-                  <div class='user_name_time'>
-                    <strong><%= link_to user.name, user_path(user) %></strong>
-                  </div>
-                  <div class='users_follow <%= user.class %>-<%= user.id %>'>
-                    <%= render 'following', user_id: user.id%>
-                  </div>
-                </div>
-              </div>
+              <%= render 'user', user: user %>
           <% end %>
       <% end %>
       <div class="pagination">
-        <%= will_paginate @posts %>
+        <%= will_paginate @users %>
       </div>
-
-
-
     </div>
   </div>
 </div>

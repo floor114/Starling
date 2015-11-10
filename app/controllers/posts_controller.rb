@@ -5,12 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
-    end
+    redirect_to root_path
   end
 
   # GET /posts/1
@@ -20,7 +15,6 @@ class PostsController < ApplicationController
     @likeable = @post
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @post }
     end
   end
 
@@ -31,10 +25,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    if @post.user_id == current_user.id
+    if @post.user_id == current_user.id and @post.created_at > Time.now-1.day
 
     else
-      redirect_to user_path(current_user)
+      redirect_to :back
     end
   end
 
@@ -60,7 +54,7 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to user_path(current_user), notice: ['block', 'Post was successfully updated.'] }
+        format.html { redirect_to @post, notice: ['block', 'Post was successfully updated.'] }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -68,7 +62,7 @@ class PostsController < ApplicationController
       end
     end
     else
-      redirect_to user_path(current_user)
+      redirect_to :back
     end
   end
 
@@ -82,7 +76,7 @@ class PostsController < ApplicationController
         format.json { head :no_content }
       end
     else
-      redirect_to user_path(current_user)
+      redirect_to :back
     end
   end
 

@@ -1,0 +1,21 @@
+<div class='user_info'>
+
+  <div class='avatar'>
+    <%= image_tag user.avatar.url %>
+  </div>
+  <div class='info'>
+    <h1><%= @user.name %></h1>
+    <!--<h3>@floor114</h3>-->
+    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+    <div class='more_info'>
+      <!--<p>Khmelnytsky</p>-->
+      <!--<a href='vk.com/floor114'>vk.com/floor114</a>-->
+      <p>In Starling from <%= user.created_at.strftime('%B')%>
+        <%=user.created_at.year %></p>
+    </div>
+    <div class='follow <%= user.class %>-<%= user.id %>'>
+      <%= render 'following', user_id: @user.id%>
+    </div>
+  </div>
+
+</div>

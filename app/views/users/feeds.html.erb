@@ -1,66 +1,16 @@
 <% provide(:title, 'Feeds') %>
 <div class='container clearfix'>
   <div class='content'>
-    <div class='user_info'>
-      <div class='avatar'>
-        <%= image_tag @user.avatar.url %>
-      </div>
-      <div class='info'>
-        <h1><%= @user.name %></h1>
-        <!--<h3>@floor114</h3>-->
-        <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-        <div class='more_info'>
-          <!--<p>Khmelnytsky</p>-->
-          <!--<a href='vk.com/floor114'>vk.com/floor114</a>-->
-          <p>Posts:  <%= @user.posts.count%></p>
-          <p>Following:  <%= @user.followees_count%></p>
-          <p>Followers:  <%= @user.followers_count%></p>
-        </div>
-        <div class='follow'>
-          <% if @user.id != current_user.id%>
-              <% unless current_user.follows?(@user)%>
-                  <%= button_to 'Follow', follow_path(@user) %>
-              <% else %>
-                  <%= button_to 'Unfollow', unfollow_path(@user) %>
-              <% end %>
-          <% end %>
-        </div>
-      </div>
-
-    </div>
+    <%= render 'user_info', user: @user%>
     <div class='wall'>
       <div class='artcl'>
-        <h1>Posts</h1>
+        Posts
       </div>
-
           <% @posts.each do |post| %>
               <hr>
               <div class='starls'>
-                <div class='starls_photo'>
-                  <%= link_to image_tag(User.find(post.user_id).avatar.url), user_path(User.find(post.user_id)) %>
-                </div>
-                <div class='starl-state'>
-                  <div class='user_name_time'>
-                    <strong><%= link_to User.find(post.user_id).name, user_path(User.find(post.user_id)) %></strong> - <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%>
-                  </div>
-                  <p><%= post.content %></p>
-                </div>
-                <div class='item_bar'>
-
-                <div class='comments-count'>
-                  <% if post.comments.size>0 %>
-                      <% if post.comments.size==1 %>
-                        <%= link_to post.comments.size.to_s+' comment', post %>
-                      <% else %>
-                          <%= link_to post.comments.size.to_s+' comments', post %>
-                      <% end %>
-                  <% else %>
-                      <%= link_to 'Comment', post %>
-                  <% end %>
-                  </div>
-                  <div class="likes <%= post.class %>-<%= post.id %>">
-                    <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
-                  </div>
+                <div class="<%= post.class %>-<%= post.id %>">
+                  <%= render 'posts/post', post: post%>
                 </div>
               </div>
           <% end %>

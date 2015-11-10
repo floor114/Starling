@@ -1,8 +1,41 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
+
+  def show
+    redirect_to root_path
+  end
+
+  def index
+    redirect_to root_path
+  end
 
   def new
-    @comment = Comment.new
+    redirect_to root_path
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+    if @comment.user_id == current_user.id and @comment.created_at > Time.now-1.day
+
+    else
+      redirect_to :back
+    end
+  end
+
+  def update
+    if @comment.user_id == current_user.id
+      respond_to do |format|
+        if @comment.update(comment_params)
+          format.html { redirect_to post_path(@comment.post_id), notice: ['block', 'Post was successfully updated.'] }
+          format.json { render :show, status: :ok, location: @comment }
+        else
+          format.html { render :edit }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      redirect_to :back
+    end
   end
 
   def create
@@ -11,7 +44,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @post, notice: ['success', 'Comment was successfully created.'] }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { redirect_to @post }
@@ -26,7 +59,7 @@ class CommentsController < ApplicationController
       @comment.destroy
 
       respond_to do |format|
-        format.html { redirect_to @post }
+        format.html { redirect_to @post ,notice: ['error', 'Comment was successfully destroyed.']}
         format.xml  { head :ok }
       end
     else

@@ -7,16 +7,13 @@ Rails.application.routes.draw do
   end
 
   # match :following, via: [:post, :delete]
-
-  devise_for :users, controllers: { registrations: "registrations" }
-
+  devise_for :users, controllers: { registrations: 'registrations' }, path: 'accounts', path_names: { sign_in: 'login', sign_up: 'signin', sign_out: 'logout', password: 'secret', confirmation: 'verification' }
   root 'home#index'
   get 'users/:id/feeds', to: 'users#feeds', as: :feeds
-  post '/users/:id/following', to: 'users#following', as: :follow
-  delete '/users/:id/following', to: 'users#following', as: :unfollow
+  post '/users/:id/follow', to: 'users#following', as: :follow
+  delete '/users/:id/unfollow', to: 'users#following', as: :unfollow
 
   resources :users
-  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

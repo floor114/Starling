@@ -1,6 +1,12 @@
-<h1>Editing Comment</h1>
+<% provide(:title, 'Edit comment') %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<div class="container clearfix">
+  <div class="content">
+    <div class="wall-post">
+      <div class="artcl">
+        Edit comment
+      </div>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
