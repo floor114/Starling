@@ -5,16 +5,18 @@
   <div class='user_name_time'>
     <strong><%= link_to post.user.name, user_path(post.user) %></strong> -
 
-    <% if post.created_at > Time.now-12.hours %>
-        <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%>
-    <% elsif post.created_at < Time.now-12.hours and post.created_at > Time.now-1.day %>
-        <%= link_to 'Today at '+post.created_at.strftime('%I:%M')+post.created_at.strftime(' %p').downcase, post%>
-    <% elsif post.created_at < Time.now-1.day and post.created_at > Time.now-2.day %>
-        <%= link_to 'Yesterday at '+post.created_at.strftime('%I:%M')+post.created_at.strftime(' %p').downcase, post%>
-    <% elsif post.created_at < Time.now-2.day and post.created_at > Time.now-1.year%>
-        <%= link_to post.created_at.strftime('%e %b')+' at '+post.created_at.strftime('%I:%M')+post.created_at.strftime(' %p').downcase, post%>
-    <% elsif post.created_at < Time.now-1.year%>
-        <%= link_to post.created_at.strftime('%e %b %Y'), post%>
+    <% if type %>
+        <% if post.created_at > Time.now-24.hours %>
+            <%= link_to (time_ago_in_words(post.created_at)+ ' ago.'), post%>
+        <% else %>
+            <% if Date.new(post.created_at.year, post.created_at.month, post.created_at.day) === Date.new(Time.now.year, Time.now.month, Time.now.day-1)%>
+                <%= link_to 'Yesterday at '+post.created_at.strftime('%I:%M')+post.created_at.strftime(' %p').downcase, post%>
+            <% else %>
+                <%= link_to post.created_at.strftime('%B %e'), post%>
+            <% end %>
+        <% end %>
+    <% else %>
+        <%= link_to post.created_at.strftime('%d %b %Y at ')+post.created_at.strftime('%H:%M')+post.created_at.strftime(' %p').downcase, post%>
     <% end %>
 
     <% if post.user == current_user %>

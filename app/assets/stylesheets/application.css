@@ -646,7 +646,7 @@ button[type=submit]:active, input[type=submit]:active {
 
 .pagination a {
     text-decoration: none;
-    font: bold 14px Arial,sans-serif;
+    font: bold 13px Arial,sans-serif;
     color: #292f33;
 }
 
