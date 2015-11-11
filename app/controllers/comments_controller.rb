@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: ['success', 'Comment was successfully created.'] }
+        format.html { redirect_to @post }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { redirect_to @post }
@@ -59,7 +59,7 @@ class CommentsController < ApplicationController
       @comment.destroy
 
       respond_to do |format|
-        format.html { redirect_to @post ,notice: ['error', 'Comment was successfully destroyed.']}
+        format.html { redirect_to @post }
         format.xml  { head :ok }
       end
     else

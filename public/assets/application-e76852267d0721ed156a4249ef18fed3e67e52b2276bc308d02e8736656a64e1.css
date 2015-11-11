@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
- *= require_tree
+
  */
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -724,5 +724,9 @@ button[type=submit]:active, input[type=submit]:active {
 
 .new-post {
     float: right;
+    width: 20px;
+}
+
+.new-post img {
     width: 20px;
 }

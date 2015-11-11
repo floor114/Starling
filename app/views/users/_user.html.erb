@@ -1,4 +1,4 @@
-<div class='starls'>
+<% unless user == current_user or user.confirmed_at.nil?  %><div class='starls'>
   <div class='starls_photo'>
     <%= link_to image_tag(user.avatar.url), user_path(user) %>
   </div>
@@ -12,3 +12,4 @@
   </div>
 </div>
 <hr>
+<% end %>

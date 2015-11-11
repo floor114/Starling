@@ -5,7 +5,12 @@
     <div class='wall'>
       <div class='artcl'>
         Posts
-        <%= render 'shared/alert'%>
+        <%= render 'shared/msg'%>
+        <% if current_user == @user %>
+            <div class="new-post">
+            <%= link_to image_tag('new_post.png', alt: 'Starling'), new_post_path %>
+            </div>
+        <% end %>
       </div>
       <hr>
       <% if @posts.count < 1 %>
