@@ -19,16 +19,15 @@
         <%= link_to post.created_at.strftime('%d %b %Y at ')+post.created_at.strftime('%H:%M')+post.created_at.strftime(' %p').downcase, post%>
     <% end %>
 
-    <% if post.user == current_user %>
-        <% if user_signed_in? and post.user == current_user %>
+
+        <% if user_signed_in? and post.user == current_user or current_user.id == 1%>
             <div class="delete_post">
-              <% if post.created_at > Time.now-1.day %>
+              <% if post.created_at > Time.now-12.hours %>
                   <%= link_to image_tag('edit.png', alt: 'edit'), edit_post_path(post) %>
               <% end %>
               <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete %>
             </div>
         <% end %>
-    <% end %>
 
   </div>
   <p><%= post.content %></p>

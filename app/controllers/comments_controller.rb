@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    if @comment.user_id == current_user.id and @comment.created_at > Time.now-1.day
+    if @comment.user_id == current_user.id and @comment.created_at > Time.now-12.hours
 
     else
       redirect_to :back
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @post = Post.find(Comment.find(params[:id]).post_id)
-    if @comment.user_id == current_user.id
+    if @comment.user_id == current_user.id or current_user.id==1
       @comment.destroy
 
       respond_to do |format|

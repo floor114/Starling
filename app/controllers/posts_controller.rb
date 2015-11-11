@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    if @post.user_id == current_user.id and @post.created_at > Time.now-1.day
+    if @post.user_id == current_user.id and @post.created_at > Time.now-12.hours
 
     else
       redirect_to :back
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    if @post.user_id == current_user.id
+    if @post.user_id == current_user.id or current_user.id==1
       @post.destroy
       respond_to do |format|
         format.html { redirect_to user_path(current_user)  }
