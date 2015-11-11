@@ -18,7 +18,7 @@
 function hide_flash(){
     setTimeout(function(){
         $('.alert').fadeOut(2000);
-    }, 500);
+    }, 1500);
 }
 
 var main = function(){
