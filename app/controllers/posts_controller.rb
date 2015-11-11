@@ -69,10 +69,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    if @post.user_id == current_user.id or current_user.id==1
+    if @post.user_id == current_user.id or current_user==User.first
       @post.destroy
       respond_to do |format|
-        format.html { redirect_to user_path(current_user)  }
+        format.html { redirect_to :back  }
         format.json { head :no_content }
       end
     else
@@ -98,7 +98,11 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      if Post.where(id: params[:id]).blank?
+        redirect_to user_path(current_user)
+      else
+        @post = Post.find(params[:id])
+      end
     end
 
     def post_params

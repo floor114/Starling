@@ -8,7 +8,7 @@
         <div class="user_name_time">
           <strong><%= link_to User.find(comment.user_id).name, user_path(User.find(comment.user_id)) %></strong> - <%= time_ago_in_words(comment.created_at)+ ' ago.'%>
 
-            <% if user_signed_in? and User.find(comment.user_id) == current_user or current_user.id==1 %>
+            <% if user_signed_in? and User.find(comment.user_id) == current_user or current_user==User.first %>
               <div class="delete_post">
                 <% if comment.created_at > Time.now-12.hours %>
                     <%= link_to image_tag('edit.png', alt: 'edit'), edit_comment_path(comment) %>

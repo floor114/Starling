@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @post = Post.find(Comment.find(params[:id]).post_id)
-    if @comment.user_id == current_user.id or current_user.id==1
+    if @comment.user_id == current_user.id or current_user==User.first
       @comment.destroy
 
       respond_to do |format|
