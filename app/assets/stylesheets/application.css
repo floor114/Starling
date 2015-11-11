@@ -726,3 +726,7 @@ button[type=submit]:active, input[type=submit]:active {
     float: right;
     width: 20px;
 }
+
+.new-post img {
+    width: 20px;
+}
