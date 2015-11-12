@@ -23,16 +23,7 @@
       <% end %>
       <div class="posts-container">
       <% @posts.each do |post| %>
-
-          <div class='starls'>
-
-            <div class="<%= post.class %>-<%= post.id %>">
-                <%= render 'posts/post', post: post, type: true%>
-            </div>
-
-          </div>
-            <hr>
-
+                <%= render 'posts/post', post: post, type: true, remote: true%>
       <% end %>
       </div>
       <div class="pagination">

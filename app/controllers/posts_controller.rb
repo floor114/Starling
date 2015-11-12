@@ -72,8 +72,9 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id or current_user==User.first
       @post.destroy
       respond_to do |format|
-        format.html { redirect_to :back  }
+        format.html { redirect_to user_path(@post.user)  }
         format.json { head :no_content }
+        format.js { render :layout => false }
       end
     else
       redirect_to :back

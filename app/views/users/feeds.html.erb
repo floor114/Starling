@@ -11,12 +11,7 @@
         <div class="an-action"> <%= link_to 'Follow users...', users_path %> </div>
       <% end %>
           <% @posts.each do |post| %>
-              <div class='starls'>
-                <div class="<%= post.class %>-<%= post.id %>">
-                  <%= render 'posts/post', post: post, type: true %>
-                </div>
-              </div>
-          <hr>
+                  <%= render 'posts/post', post: post, type: true, remote: true %>
           <% end %>
       <div class="pagination">
         <%= will_paginate @posts %>

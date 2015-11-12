@@ -57,10 +57,10 @@ class CommentsController < ApplicationController
     @post = Post.find(Comment.find(params[:id]).post_id)
     if @comment.user_id == current_user.id or current_user==User.first
       @comment.destroy
-
       respond_to do |format|
         format.html { redirect_to @post }
         format.xml  { head :ok }
+        format.js   { render :layout => false }
       end
     else
       redirect_to @post

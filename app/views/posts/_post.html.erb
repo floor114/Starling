@@ -1,3 +1,5 @@
+<div class='starl-container'>
+  <div class="starls <%= post.class %>-<%= post.id %>">
 <div class='starls_photo'>
   <%= link_to image_tag(post.user.avatar.url), user_path(post.user) %>
 </div>
@@ -25,7 +27,12 @@
               <% if post.created_at > Time.now-12.hours %>
                   <%= link_to image_tag('edit.png', alt: 'edit'), edit_post_path(post) %>
               <% end %>
-              <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete %>
+
+              <% if remote %>
+                <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete, :remote => true, :class => 'delete_post' %>
+              <% else %>
+                  <%= link_to image_tag('delete.png', alt: 'delete'), post, method: :delete, :class => 'delete_post' %>
+              <% end %>
             </div>
         <% end %>
 
@@ -50,4 +57,8 @@
   <div class="likes like-<%= post.id %>">
     <%= render 'posts/vote',  post_id: post.id, count: post.likers_count %>
   </div>
+</div>
+
+  </div>
+  <hr>
 </div>

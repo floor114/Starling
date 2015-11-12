@@ -12,7 +12,7 @@
             <% if comment.created_at > Time.now-12.hours %>
                 <%= link_to image_tag('edit.png', alt: 'edit'), edit_comment_path(comment) %>
             <% end %>
-            <%= link_to image_tag('delete.png', alt: 'delete'), comment, method: :delete %>
+            <%= link_to image_tag('delete.png', alt: 'delete'), comment, method: :delete, :remote => true, :class => 'delete_comment' %>
           </div>
       <% end %>
 
