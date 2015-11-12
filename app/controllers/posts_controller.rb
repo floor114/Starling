@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @likeable = @post
+    @comments = @post.comments.paginate(:page => params[:page], :per_page => 15).reverse_order
     respond_to do |format|
       format.html # show.html.erb
     end

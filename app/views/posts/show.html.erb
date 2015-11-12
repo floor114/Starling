@@ -13,7 +13,13 @@
           <%= f.button 'Add Comment'%>
           </div>
       <%end%>
-      <%= render :partial =>@post.comments %>
+
+      <% @comments.each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+      <% end %>
+      <div class="pagination">
+        <%= will_paginate @comments %>
+      </div>
     </div>
   </div>
 </div>

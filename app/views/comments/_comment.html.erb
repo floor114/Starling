@@ -1,25 +1,22 @@
-<%= div_for(comment) do %>
-    <div class="starls-post">
-      <div class="starls_photo">
-        <%= link_to image_tag(User.find(comment.user_id).avatar.url), user_path(User.find(comment.user_id)) %>
-      </div>
-      <div class="starl-state">
+<div class="starls-post">
+  <div class="starls_photo">
+    <%= link_to image_tag(User.find(comment.user_id).avatar.url), user_path(User.find(comment.user_id)) %>
+  </div>
+  <div class="starl-state">
 
-        <div class="user_name_time">
-          <strong><%= link_to User.find(comment.user_id).name, user_path(User.find(comment.user_id)) %></strong> - <%= time_ago_in_words(comment.created_at)+ ' ago.'%>
+    <div class="user_name_time">
+      <strong><%= link_to User.find(comment.user_id).name, user_path(User.find(comment.user_id)) %></strong> - <%= time_ago_in_words(comment.created_at)+ ' ago.'%>
 
-            <% if user_signed_in? and User.find(comment.user_id) == current_user or current_user==User.first %>
-              <div class="delete_post">
-                <% if comment.created_at > Time.now-12.hours %>
-                    <%= link_to image_tag('edit.png', alt: 'edit'), edit_comment_path(comment) %>
-                <% end %>
-                <%= link_to image_tag('delete.png', alt: 'delete'), comment, method: :delete %>
-              </div>
+      <% if user_signed_in? and User.find(comment.user_id) == current_user or current_user==User.first %>
+          <div class="delete_post">
+            <% if comment.created_at > Time.now-12.hours %>
+                <%= link_to image_tag('edit.png', alt: 'edit'), edit_comment_path(comment) %>
             <% end %>
+            <%= link_to image_tag('delete.png', alt: 'delete'), comment, method: :delete %>
+          </div>
+      <% end %>
 
-        </div>
-        <p><%= comment.content %></p>
-      </div>
     </div>
-<% end %>
-
+    <p><%= comment.content %></p>
+  </div>
+</div>
