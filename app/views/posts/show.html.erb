@@ -7,12 +7,7 @@
           </div>
     </div>
     <div class='wall-post'>
-      <%= form_for [@post, Comment.new] do |f| %>
-          <%= f.text_area :content, :label => 'New Comment', as: :text, input_html:{ rows: '3'} %>
-          <div class='comment-button'>
-          <%= f.button 'Add Comment'%>
-          </div>
-      <%end%>
+      <%= render 'comments/comment_form', post: @post %>
 
       <% @comments.each do |comment| %>
           <%= render 'comments/comment', comment: comment %>
