@@ -1,6 +1,0 @@
-<%= form_for [post, Comment.new] do |f| %>
-    <%= f.text_area :content, :label => 'New Comment', as: :text, input_html:{ rows: '3'} %>
-    <div class='comment-button'>
-      <%= f.button 'Add Comment'%>
-    </div>
-<%end%>

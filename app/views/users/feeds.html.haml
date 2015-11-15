@@ -1,0 +1,15 @@
+- provide(:title, 'Feeds')
+.container.clearfix
+  .content
+    = render 'user_info', user: @user
+    .wall
+      .artcl
+        Feeds
+      %hr
+      - if @posts.count < 1
+        .an-action
+          = link_to 'Follow users...', users_path
+      - @posts.each do |post|
+        = render 'posts/post', post: post, type: true, remote: true
+      .pagination
+        = will_paginate @posts

@@ -1,7 +1,0 @@
-<% if user_signed_in? and User.find(user_id) != current_user%>
-    <% if current_user.follows?(User.find(user_id)) %>
-        <%= button_to "Unfollow", unfollow_path(User.find(user_id)), remote: true, method: :delete %>
-    <% else %>
-        <%= button_to "Follow", follow_path(User.find(user_id)), remote: true, method: :post %>
-    <% end %>
-<% end %>

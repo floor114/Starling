@@ -1,0 +1,22 @@
+- provide(:title, @user.name)
+.container.clearfix
+  .content
+    = render 'user_info', user: @user
+    .wall
+      .artcl
+        Posts
+        - if current_user == @user
+          .new-post
+            = link_to image_tag('new_post.png', alt: 'Starling'), new_post_path
+      %hr
+      - if @posts.count < 1
+        .an-action
+          - if current_user == @user
+            = link_to 'Create a post...', new_post_path
+          - else
+            %p This user don't have a posts.
+      .posts-container
+        - @posts.each do |post|
+          = render 'posts/post', post: post, type: true, remote: true
+      .pagination
+        = will_paginate @posts

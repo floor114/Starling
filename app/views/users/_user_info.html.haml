@@ -1,0 +1,14 @@
+.user_info
+  .avatar
+    = image_tag user.avatar.url
+  .info
+    %h1= @user.name
+    / <h3>@floor114</h3>
+    / <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    .more_info
+      / <p>Khmelnytsky</p>
+      / <a href='vk.com/floor114'>vk.com/floor114</a>
+      %p
+        In Starling from #{user.created_at.strftime('%B')}#{user.created_at.year}
+    %div{:class => "follow #{user.class}-#{user.id}"}
+      = render 'following', user_id: @user.id

@@ -1,0 +1,20 @@
+- provide(:title, 'Login or Sign up')
+#wrapper
+  .container.clearfix
+    - if flash[:notice]
+      %p.alert= flash[:notice]
+    - if flash[:alert]
+      %p.alert= flash[:alert]
+    .text
+      %section
+        %h1 Welcome to Starling
+        %p Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.
+    .forms
+      .login
+        = render 'home/log_in_form'
+      .signin
+        %h2
+          %strong> New to Starling?
+          Sign up
+        %hr/
+        = render 'home/sign_in_form'

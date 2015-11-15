@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @users = User.all.paginate(:page => params[:page], :per_page => 15).order(:created_at).reverse_order
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @users }
     end
   end

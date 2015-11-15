@@ -1,0 +1,4 @@
+= form_for [post, Comment.new] do |f|
+  = f.text_area :content, :label => 'New Comment', as: :text, input_html:{ rows: '3'}
+  .comment-button
+    = f.button 'Add Comment'

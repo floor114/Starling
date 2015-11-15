@@ -11,6 +11,8 @@ gem 'socialization'
 gem 'figaro'
 gem 'will_paginate'
 gem 'aws-sdk-v1'
+gem 'haml-rails'
+
 
 group :development, :test do
   gem 'sqlite3'

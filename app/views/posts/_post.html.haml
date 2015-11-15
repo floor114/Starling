@@ -1,0 +1,40 @@
+.starl-container
+  %div{:class => "starls #{post.class}-#{post.id}"}
+    .starls_photo
+      = link_to image_tag(post.user.avatar.url), user_path(post.user)
+    .starl-state
+      .user_name_time
+        %strong= link_to post.user.name, user_path(post.user)
+        \-
+        - if type
+          - if post.created_at > Time.now-24.hours
+            = link_to (time_ago_in_words(post.created_at)+ ' ago.'), post
+          - else
+            - if Date.new(post.created_at.year, post.created_at.month, post.created_at.day) === Date.new(Time.now.year, Time.now.month, Time.now.day-1)
+              = link_to 'Yesterday at '+post.created_at.strftime('%I:%M')+post.created_at.strftime(' %p').downcase, post
+            - else
+              = link_to post.created_at.strftime('%B %e'), post
+        - else
+          = link_to post.created_at.strftime('%d %b %Y at ')+post.created_at.strftime('%H:%M')+post.created_at.strftime(' %p').downcase, post
+        - if user_signed_in? and post.user == current_user or current_user==User.first
+          .delete_post
+            - if post.created_at > Time.now-12.hours
+              = link_to image_tag('edit.png', alt: 'edit'), edit_post_path(post)
+            - if remote
+              = link_to image_tag('delete.png', alt: 'delete'), post, method: :delete, :remote => true, :class => 'delete_post'
+            - else
+              = link_to image_tag('delete.png', alt: 'delete'), post, method: :delete, :class => 'delete_post'
+      %p= post.content
+    .item_bar
+      - if type
+        .comments-count
+          - if post.comments.size>0
+            - if post.comments.size==1
+              = link_to post.comments.size.to_s+' comment', post
+            - else
+              = link_to post.comments.size.to_s+' comments', post
+          - else
+            = link_to 'Comment', post
+      %div{:class => "likes like-#{post.id}"}
+        = render 'posts/vote',  post_id: post.id, count: post.likers_count
+  %hr

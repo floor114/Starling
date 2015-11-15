@@ -1,0 +1,12 @@
+- provide(:title, 'Post '+@post.id.to_s)
+.container.clearfix
+  .content
+    .wall-post
+      .starls-post
+        = render 'post', post: @post, type: false, remote: false
+    .wall-post
+      = render 'comments/comment_form', post: @post
+      - @comments.each do |comment|
+        = render 'comments/comment', comment: comment
+      .pagination
+        = will_paginate @comments
