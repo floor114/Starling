@@ -1,0 +1,9 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  - if flash[:notice]
+    %p.alert= flash[:notice]
+  - if flash[:alert]
+    %p.alert= flash[:alert]
+  = devise_error_messages!
+  = f.email_field :email, :placeholder => "Email"
+  = f.password_field :password , :placeholder => "Password"
+  = f.button "Log in"

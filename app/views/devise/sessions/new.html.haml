@@ -1,0 +1,9 @@
+- provide(:title, 'Login')
+#wrapper
+  .container.clearfix
+    .form
+      %section.login
+        %strong Login on Starling.
+        %hr/
+        = render "devise/sessions/form"
+        = render "devise/shared/links"
