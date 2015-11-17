@@ -729,3 +729,33 @@ button[type=submit]:active, input[type=submit]:active {
 .new-post img {
     width: 20px;
 }
+
+.stats {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.stat {
+    float: left;
+    width: 50%;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.stats span {
+    color: #8899a6;
+}
+
+.stats strong {
+    color: #ffcc4d;
+}
+
+.stat-count {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}

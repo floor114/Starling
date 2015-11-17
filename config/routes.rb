@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'users/:id/feeds', to: 'users#feeds', as: :feeds
   post '/users/:id/follow', to: 'users#following', as: :follow
   delete '/users/:id/unfollow', to: 'users#following', as: :unfollow
+  get 'users/:id/followers', to: 'users#followers', as: :followers
+  get 'users/:id/followings', to: 'users#followees', as: :followees
 
   resources :users
 

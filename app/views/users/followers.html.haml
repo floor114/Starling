@@ -1,0 +1,11 @@
+- provide(:title, 'Followers')
+.container.clearfix
+  .content
+    .wall-users
+      .artcl
+        Followers
+      %hr
+      - @followers.each do |user|
+        = render 'user', user: user
+      -#.pagination
+      -#  = will_paginate @users

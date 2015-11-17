@@ -9,6 +9,34 @@
       / <p>Khmelnytsky</p>
       / <a href='vk.com/floor114'>vk.com/floor114</a>
       %p
-        In Starling from #{user.created_at.strftime('%B')}#{user.created_at.year}
+        In Starling from #{user.created_at.strftime('%B ')}#{user.created_at.year}
     %div{:class => "follow #{user.class}-#{user.id}"}
       = render 'following', user_id: @user.id
+    .stats.clearfix
+      .stat
+        = link_to(followers_path, type: :followers) do
+          %strong.stat-count
+            = @user.followers_count
+          %span.stat-muted
+            - if @user.followers_count == 1
+              = 'Follower'
+            - else
+              = 'Followers'
+      .stat
+      -#= link_to(users_path) do
+      -#  %strong.stat-count
+      -#    = @user.likees_count
+      -#  %span.stat-muted
+      -#    - if @user.likees_count == 1
+      -#      = 'Like'
+      -#    - else
+      -#      = 'Likes'
+      .stat
+        = link_to(followees_path) do
+          %strong.stat-count
+            = @user.followees_count
+          %span.stat-muted
+            - if @user.followees_count == 1
+              = 'Following'
+            - else
+              = 'Followings'
