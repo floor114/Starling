@@ -5,6 +5,9 @@
       .artcl
         Followees
       %hr
+      - if @followees.count < 1
+        .an-action
+          %p This user don't have a followings.
       - @followees.each do |user|
         = render 'user', user: user
       -#.pagination
