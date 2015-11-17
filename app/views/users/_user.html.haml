@@ -1,10 +1,11 @@
-- unless user == current_user or user.confirmed_at.nil?
+- unless user.confirmed_at.nil?
   .starls
     .starls_photo
       = link_to image_tag(user.avatar.url), user_path(user)
     .starl-state
       .user_name_time
         %strong= link_to user.name, user_path(user)
-      %div{:class => "users_follow #{user.class}-#{user.id}"}
-        = render 'following', user_id: user.id
+      -unless user == current_user
+        %div{:class => "users_follow #{user.class}-#{user.id}"}
+          = render 'following', user_id: user.id
   %hr
