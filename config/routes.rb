@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  # match :following, via: [:post, :delete]
-  devise_for :users, controllers: { registrations: 'registrations' }, path: 'accounts', path_names: { sign_in: 'login', sign_up: 'signup', sign_out: 'logout', password: 'secret', confirmation: 'verification' }
+  devise_for :users, controllers: { registrations: 'registrations' }, path: '', path_names: { sign_in: 'login', sign_up: 'signup', sign_out: 'logout', password: 'secret', confirmation: 'verification' }
   root 'home#index'
   get 'users/:id/feeds', to: 'users#feeds', as: :feeds
   post '/users/:id/follow', to: 'users#following', as: :follow

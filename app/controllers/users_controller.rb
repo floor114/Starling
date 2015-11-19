@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followers(User)
+    @followers = @user.followers.paginate(:page => params[:page], :per_page => 15)
   end
 
   def followees
