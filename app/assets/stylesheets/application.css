@@ -318,6 +318,12 @@ button[type=submit]:active, input[type=submit]:active {
     height: 200px;
 }
 
+.avatar-feeds {
+    margin: 0 32.75px;
+    width: 100px;
+    height: 100px;
+}
+
 .avatar img {
     border-radius: 8px;
     height: 100%;
@@ -353,6 +359,11 @@ button[type=submit]:active, input[type=submit]:active {
     width: 75%;
     padding: 10px 10px;
     border: 1px solid rgba(0,0,0,0.05);
+}
+
+.wall-feeds {
+    float: right;
+    width: 82%;
 }
 
 .wall-users {
@@ -481,11 +492,21 @@ button[type=submit]:active, input[type=submit]:active {
     width: 25%;
 }
 
+.user_info-feeds {
+    width: 18%;
+}
+
 .info h1 {
     text-align: center;
     padding-top: 210px;
     font: bold 22px Arial,sans-serif;
     color: #292f33;
+}
+
+.info-feeds h1 {
+    padding-top: 110px;
+    padding-bottom: 10px;
+    font-size: 14px;
 }
 
 .info h3 {
@@ -510,8 +531,8 @@ button[type=submit]:active, input[type=submit]:active {
 }
 
 .artcl {
-    padding: 5px;
-    font: 18px Arial, sans-serif;
+    padding: 5px 5px 0 5px;
+    font: 20px Arial, sans-serif;
     color: #292f33;
 }
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 18 }
   has_many :posts
   has_attached_file :avatar,:default_url => "missing_avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
